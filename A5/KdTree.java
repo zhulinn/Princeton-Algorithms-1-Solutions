@@ -15,7 +15,14 @@ public class KdTree {
     private static final boolean toLB = false;
     private static final boolean toRT = true;
     
+        //    Pruning rule: if the query rectangle does not intersect the rectangle corresponding to a node,
+    //      there is no need to explore that node (or its subtrees).
     
+    //    My solution uses complex ways to check whether the current rect where the node is in intersects with the querry rect
+    //    However, There are a built-in methods "intersects" of "rect" class you can dirrectly use.
+    //     I did not realize that untill I finished it. Sorry about that~~
+
+       
     private static class isInterResult {
         boolean isInter;
         boolean isInside;
@@ -52,6 +59,7 @@ public class KdTree {
             this.rect = rect;
         }
         
+        //######    Here we should use the build-in "intersects" method in "rect" class   ####
         public isInterResult isInter(rect2D qrect) {
             double xmin = qrect.xmin;
             double xmax = qrect.xmax;
